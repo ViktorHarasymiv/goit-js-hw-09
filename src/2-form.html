@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/form.css" />
+    <title>Form Page</title>
+  </head>
+  <body>
+    <header>
+      <button type="button" class="get_button">
+        <a href="./index.html">Home Page</a>
+      </button>
+    </header>
+    <main>
+      <button type="button" class="get_button" data-js-theme-switcher>
+        <span>Theme</span>
+      </button>
+      <div class="user_panel">
+        <img
+          src="./img/userIco.svg"
+          width="40px"
+          height="40px"
+          style="border: 0px; border-radius: 50px; background: #f0f0f0"
+          class="user_avatar"
+        />
+        <div class="user_content">
+          <span class="name">Welcome, Name</span>
+          <span class="email_user">E-mail</span>
+          <span class="role">Role</span>
+        </div>
+      </div>
+      <form class="login-form">
+        <label>
+          <span class="label_text">Email</span>
+          <input
+            type="email"
+            name="email"
+            placeholder="E-mail"
+            id="email-input"
+            class="input"
+          />
+          <span class="valid_text email"></span>
+        </label>
+        <label>
+          <span class="label_text">Name</span>
+          <input
+            type="text"
+            name="name"
+            id="name-input"
+            placeholder="Name"
+            class="input"
+          />
+          <span class="valid_text valid_name"></span>
+        </label>
+        <label>
+          <span class="label_text">Message</span>
+          <textarea
+            name="textarea"
+            id="textarea-input"
+            class="input"
+            placeholder="Write your message"
+            rows="8"
+          ></textarea>
+          <span class="valid_text textarea"></span>
+        </label>
+        <div class="button-block">
+          <button type="submit" class="btn_submit">Sing In</button>
+          <button type="reset" class="btn_submit reset">Sign out</button>
+        </div>
+      </form>
+    </main>
+  </body>
+  <script type="module" src="./js/2-form.js"></script>
+</html>
