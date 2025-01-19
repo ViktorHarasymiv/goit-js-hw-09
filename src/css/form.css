@@ -1,50 +1,4 @@
-@keyframes loadFormAnim {
-	0% {
-		animation-timing-function: ease-in;
-		opacity: 1;
-		transform: translateY(-45px);
-	}
-
-	24% {
-		opacity: 1;
-	}
-
-	40% {
-		animation-timing-function: ease-in;
-		transform: translateY(-24px);
-	}
-
-	65% {
-		animation-timing-function: ease-in;
-		transform: translateY(-12px);
-	}
-
-	82% {
-		animation-timing-function: ease-in;
-		transform: translateY(-6px);
-	}
-
-	93% {
-		animation-timing-function: ease-in;
-		transform: translateY(-4px);
-	}
-
-	25%,
-	55%,
-	75%,
-	87% {
-		animation-timing-function: ease-out;
-		transform: translateY(0px);
-	}
-
-	100% {
-		animation-timing-function: ease-out;
-		opacity: 1;
-		transform: translateY(0px);
-	}
-}
-
-.login-form {
+.feedback-form {
     margin:  40px auto;
     padding: 60px 40px;
     
@@ -63,7 +17,6 @@
     animation: loadFormAnim 2s ease 0s 1 normal none;
   }
   
-  
   .label_text {
     display: block;
     margin-bottom: 8px;
@@ -76,33 +29,17 @@
     color: inherit;
   }
   
-  .reset {
-    background: #ff4e4e;
-  }
-  
-  .valid_text {
-    position: absolute;
-    display: block;
-  
-    color: #ff4e4e;
-  
-    font-size: 12px;
-    letter-spacing: 0.05em;
-    font-weight: 500;
-  }
-  
   .email,
-  .valid_name,
   .textarea {
   transform: translate(0, -14px);
   }
-  
-  .is-valid {
-    outline: 1px solid #ff4e4e;
-    box-shadow: rgba(253, 2, 2, 0.2) 0px 7px 29px 0px;
+
+  .is-focus {
+    outline: 1px solid #000000;
   }
 
   .input {
+    margin-top: 10px;
     margin-bottom: 18px;
   
     padding: 0px 16px;
@@ -132,7 +69,7 @@
     color: #fff;
   }
 
-  .is-dark-theme .input.is-valid {
+  .is-dark-theme .input.is-focus {
     outline: none;
     border: 1px solid #ff4e4e;
   }
@@ -193,45 +130,4 @@
 .btn_submit:hover {
   opacity: 1;
   background: rgba(255, 78, 78, 0.9);
-}
-
-.button-block {
-    display: flex;
-    justify-content: space-between;
-}
-
-.user_panel {
-    padding: 15px 20px;
-    max-width: 400px;
-
-    position: fixed;
-    top: 25px;
-    right: 35px;
-    
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 30px;
-
-    background-color: rgba(255, 255, 255, 0.05);
-
-    border: 1px solid #7f056a;
-    border-radius: 10px;
-}
-
-.is-dark-theme .user_panel {
-  box-shadow: rgba(253, 2, 2, 0.2) 0px 7px 29px 0px;
-}
-
-.user_content {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-
-}
-
-.user_panel span {
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
 }

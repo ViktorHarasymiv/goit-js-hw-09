@@ -14,62 +14,31 @@
         <a href="./index.html">Home Page</a>
       </button>
     </header>
+    <button type="button" class="get_button" data-js-theme-switcher>
+      <span>Theme</span>
+    </button>
     <main>
-      <button type="button" class="get_button" data-js-theme-switcher>
-        <span>Theme</span>
-      </button>
-      <div class="user_panel">
-        <img
-          src="./img/userIco.svg"
-          width="40px"
-          height="40px"
-          style="border: 0px; border-radius: 50px; background: #f0f0f0"
-          class="user_avatar"
-        />
-        <div class="user_content">
-          <span class="name">Welcome, Name</span>
-          <span class="email_user">E-mail</span>
-          <span class="role">Role</span>
-        </div>
-      </div>
-      <form class="login-form">
+      <form class="feedback-form">
         <label>
-          <span class="label_text">Email</span>
+          Email
           <input
             type="email"
             name="email"
-            placeholder="E-mail"
             id="email-input"
             class="input"
+            autofocus
           />
-          <span class="valid_text email"></span>
         </label>
         <label>
-          <span class="label_text">Name</span>
-          <input
-            type="text"
-            name="name"
-            id="name-input"
-            placeholder="Name"
-            class="input"
-          />
-          <span class="valid_text valid_name"></span>
-        </label>
-        <label>
-          <span class="label_text">Message</span>
+          Message
           <textarea
-            name="textarea"
+            name="message"
             id="textarea-input"
-            class="input"
-            placeholder="Write your message"
             rows="8"
+            class="input"
           ></textarea>
-          <span class="valid_text textarea"></span>
         </label>
-        <div class="button-block">
-          <button type="submit" class="btn_submit">Sing In</button>
-          <button type="reset" class="btn_submit reset">Sign out</button>
-        </div>
+        <button type="submit" class="btn_submit">Submit</button>
       </form>
     </main>
   </body>

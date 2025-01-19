@@ -68,37 +68,41 @@ const images = [
     ];
     
 const galleryBox = document.querySelector(".gallery");
-const imgItem = document.querySelector(".gallery-image");
+let fragmentHTML = '';
+
+let widthImg = 320;
+let heightImg = 200; 
+
+function createGallery() {
 
 images.forEach(image => {
 
-        const imageLink = document.createElement('a');
+    let listMarkUp = `
+    <li class="gallery-item">
+       <a class="gallery-link" href=${image.original}>
+         <img 
+              data-source=${image.original} 
+              src=${image.preview}
+              alt="${image.description}"
+              class="gallery-image" 
+              width=${widthImg} 
+              height=${heightImg} 
+         />
+       </a>
+    </li>
+    `
 
-        imageLink.classList.add('gallery-link')
-        imageLink.href = image.original;
+    fragmentHTML += listMarkUp;
 
-        const imageTag = document.createElement('img');
-
-        imageTag.style.width = "320px";
-        imageTag.style.height = "200px";
-
-        imageTag.dataset.source = image.original;
-        imageTag.src = image.preview;
-        imageTag.alt = image.description;
-
-        galleryBox.append(imageLink);
-        imageLink.append(imageTag);
     })
 
-    let gallery = new SimpleLightbox( `.gallery a`);
-    gallery.on('show.simplelightbox', function () {
-        console.log('+');
-        
-	// Do something…
-         });
+    galleryBox.insertAdjacentHTML('beforeend', fragmentHTML);
+};
 
-    gallery.on('error.simplelightbox', function (e) {
-	console.log(e); // Some usefull information
-        });
+createGallery();
+
+    let gallery = new SimpleLightbox(".gallery a", {
+        captionsData: 'alt', captionDelay: 250,
+    });
     
     
