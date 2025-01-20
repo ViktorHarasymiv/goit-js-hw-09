@@ -5,18 +5,24 @@ const send = document.querySelector('.feedback-form');
 const emailInput = document.querySelector('#email-input');
 const textareaInput = document.querySelector('#textarea-input');
 
+
+
 const formData = { email: "", message: "" };
 
-const localStorageKeyEmail = "email";
-const localStorageKeyText = "message";
-
+const localStorageKey = "feedback-form-state";
 
 
 //  L O C A L   S T O R A G E
 
+const savedData = JSON.parse(localStorage.getItem(localStorageKey)) || {}; 
 
-emailInput.value = localStorage.getItem(localStorageKeyEmail) ?? "";
-textareaInput.value = localStorage.getItem(localStorageKeyText) ?? "";
+emailInput.value = savedData.email ?? ""; 
+textareaInput.value = savedData.message ?? "";
+
+
+console.log(savedData);
+
+
 
 // E V E N T
 
@@ -34,14 +40,11 @@ emailInput.addEventListener("blur", () => {
 
 emailInput.addEventListener("input", (event) => {
 
-      let emailValue = event.target.form.elements.email.value;
+      formData.email = event.target.value;
 
-      formData.email = emailValue;
-
-      localStorage.setItem(localStorageKeyEmail, emailValue);
+      localStorage.setItem(localStorageKey, JSON.stringify(formData));
 
   });
-
 
   
 //  M E S S A G E
@@ -56,16 +59,14 @@ textareaInput.addEventListener("blur", () => {
 
 
 textareaInput.addEventListener("input", (event) => {
-
-    let textValue = event.target.form.elements.message.value;
-
-    formData.message = textValue;
     
-    localStorage.setItem(localStorageKeyText, textValue);
+    formData.message = event.target.value;
+
+    localStorage.setItem(localStorageKey, JSON.stringify(formData));
   });
 
 
-  //  F U N C T I O N
+//  F U N C T I O N
 
 function handleSubmit(event) {
     event.preventDefault();
@@ -84,11 +85,7 @@ function handleSubmit(event) {
         alert(`Login : ${formData.email} , Text : ${formData.message}`
     );
 
-    formData.email = "";
-    formData.message = "";
-
-    localStorage.removeItem(localStorageKeyEmail);
-    localStorage.removeItem(localStorageKeyText);
+    localStorage.removeItem(localStorageKey);
 
     form.reset();
 }
