@@ -1,5 +1,3 @@
-import "./theme.module.js"
-
 const send = document.querySelector('.feedback-form');
 
 const emailInput = document.querySelector('#email-input');
@@ -18,9 +16,6 @@ const savedData = JSON.parse(localStorage.getItem(localStorageKey)) || {};
 
 emailInput.value = savedData.email ?? ""; 
 textareaInput.value = savedData.message ?? "";
-
-
-console.log(savedData);
 
 
 
@@ -77,15 +72,13 @@ function handleSubmit(event) {
 
     formData.email = emailInput.value;
     formData.message = textareaInput.value;
-    
 
-    if (formData.email === "" || formData.message === "") {
+    if (formData.email.trim() === "" || formData.message.trim()  === "") {
         return alert("Fill please all fields");
       }
 
       else 
-        alert(`Login : ${formData.email} , Text : ${formData.message}`
-    );
+        console.log(`${JSON.stringify(formData)}`);
 
     localStorage.removeItem(localStorageKey);
 
