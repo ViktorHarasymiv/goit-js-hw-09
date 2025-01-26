@@ -40,7 +40,8 @@ emailInput.addEventListener("blur", () => {
 
 emailInput.addEventListener("input", (event) => {
 
-      formData.email = event.target.value;
+      formData.email = event.target.value.trim();
+      formData.message = textareaInput.value;
 
       localStorage.setItem(localStorageKey, JSON.stringify(formData));
 
@@ -60,6 +61,7 @@ textareaInput.addEventListener("blur", () => {
 
 textareaInput.addEventListener("input", (event) => {
     
+    formData.email = emailInput.value;
     formData.message = event.target.value;
 
     localStorage.setItem(localStorageKey, JSON.stringify(formData));
